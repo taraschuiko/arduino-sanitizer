@@ -6,7 +6,7 @@ long duration;
 long distance;
 
 // Configurations
-int dispenseDuration = 200;
+int dispenseDuration = 600;
 int waitAfterDispense = 2000;
 int dispenseWhenDistanceIsLowerThan = 14;
 
