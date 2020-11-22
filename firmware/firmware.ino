@@ -6,15 +6,14 @@ long duration;
 long distance;
 
 // Configurations
-int dispenseDuration = 600;
+int dispenseDuration = 200;
 int waitAfterDispense = 2000;
-int dispenseWhenDistanceIsLowerThan = 14;
+int dispenseWhenDistanceIsLowerThan = 10;
 
 void setup() {
   pinMode(relay, OUTPUT);
   pinMode(distanceTrig, OUTPUT);
   pinMode(distanceEcho, INPUT);
-  Serial.begin(9600);
 }
 
 void loop() {
@@ -28,9 +27,6 @@ void loop() {
 
   duration = pulseIn(distanceEcho, HIGH);
   distance = (duration/2) / 29.1;
-
-  Serial.print(distance);
-  Serial.println("cm");
 
   if (distance < dispenseWhenDistanceIsLowerThan) {
     digitalWrite(relay, LOW);
